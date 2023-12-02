@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+	<logger name="org.springframework.web" level="INFO"/>
+	<logger name="org.springboot.sample" level="TRACE" />
+	<springProperty name="logFile" source="log.file" />
+	<springProperty name="maxFileSize" source="log.maxsize" />
+
+
+	<appender name="adminLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logFile}</file>
+		<encoder>
+			<pattern>%d [%thread] %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${logFile}.%d{yyyy-MM-dd}.%i</fileNamePattern>
+			<maxFileSize>${maxFileSize}</maxFileSize>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yyyy/MM/dd-HH:mm:ss}|%p|%t|%r|%c|%L|%m%n</pattern>
+		</encoder>
+	</appender>
+
+<!--	<logger name="net.chenlin" level="info" additivity="true">-->
+<!--		<appender-ref ref="adminLog" />-->
+<!--	</logger>-->
+
+	<root level="INFO">
+		<appender-ref ref="adminLog"/>
+<!--		<appender-ref ref="debug"/>-->
+<!--		<appender-ref ref="error"/>-->
+	</root>
+
+	<!--    &lt;!&ndash; 开发、测试环境 &ndash;&gt;-->
+	<!--    <springProfile name="sit,pre">-->
+	<!--        <logger name="org.springframework.web" level="INFO"/>-->
+	<!--        <logger name="org.springboot.sample" level="INFO" />-->
+	<!--        <logger name="net.chenlin" level="INFO" />-->
+	<!--    </springProfile>-->
+
+	<!--    &lt;!&ndash; 生产环境 &ndash;&gt;-->
+	<!--    <springProfile name="prd">-->
+	<!--        <logger name="org.springframework.web" level="ERROR"/>-->
+	<!--        <logger name="org.springboot.sample" level="ERROR" />-->
+	<!--        <logger name="net.chenlin" level="INFO" />-->
+	<!--    </springProfile>-->
+
+</configuration>

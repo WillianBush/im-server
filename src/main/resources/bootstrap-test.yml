@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 172.22.246.185:8848
+        file-extension: yaml  #后缀名
+        group: DEFAULT_GROUP      #分组
+        namespace: cb0149ee-d34e-4912-a856-0fe08ee3980f  #命名空间的id
+        shared-configs: ${spring.application.name}.${spring.cloud.nacos.config.file-extension},${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+      discovery:
+        server-addr: 172.22.246.185:8848
+        namespace: cb0149ee-d34e-4912-a856-0fe08ee3980f
+
+

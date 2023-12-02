@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.5.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>com.imservices</groupId>
+	<artifactId>im-cluster</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>im-cluster</name>
+	<description>im-cluster</description>
+	<packaging>jar</packaging>
+
+	<properties>
+		<java.version>11</java.version>
+		<commons-lang3.version>3.12.0</commons-lang3.version>
+		<guava.version>23.0</guava.version>
+		<fastJson.version>2.0.12</fastJson.version>
+		<commons-net.version>3.8.0</commons-net.version>
+		<httpclient.version>4.5.13</httpclient.version>
+		<gexin-rp-sdk-base.version>4.0.0.38</gexin-rp-sdk-base.version>
+		<gexin-rp-sdk-http.version>4.1.2.3</gexin-rp-sdk-http.version>
+		<gexin-rp-sdk-template.version>4.0.0.31</gexin-rp-sdk-template.version>
+		<spring-cloud-starter-bootstrap.version>3.1.3</spring-cloud-starter-bootstrap.version>
+	</properties>
+
+	<dependencies>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-websocket</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+			<version>${spring-cloud-starter-bootstrap.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+			<version>2.2.5.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+			<version>2.2.5.RELEASE</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-ehcache -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>5.6.10.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>7.0.5.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.6.10.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
+
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-freemarker</artifactId>-->
+<!--		</dependency>-->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastJson.version}</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/commons-net/commons-net -->
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>${commons-net.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpclient.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.gexin.platform/gexin-rp-sdk-base -->
+		<dependency>
+			<groupId>com.gexin.platform</groupId>
+			<artifactId>gexin-rp-sdk-base</artifactId>
+			<version>${gexin-rp-sdk-base.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.gexin.platform/gexin-rp-sdk-http -->
+		<dependency>
+			<groupId>com.gexin.platform</groupId>
+			<artifactId>gexin-rp-sdk-http</artifactId>
+			<version>${gexin-rp-sdk-http.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.gexin.platform/gexin-rp-sdk-template -->
+		<dependency>
+			<groupId>com.gexin.platform</groupId>
+			<artifactId>gexin-rp-sdk-template</artifactId>
+			<version>${gexin-rp-sdk-template.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.vdurmont/emoji-java -->
+		<dependency>
+			<groupId>com.vdurmont</groupId>
+			<artifactId>emoji-java</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.github.liuzhuoming23/pinyin4j-spring-boot-starter -->
+		<dependency>
+			<groupId>com.github.liuzhuoming23</groupId>
+			<artifactId>pinyin4j-spring-boot-starter</artifactId>
+			<version>0.0.4</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/QRCode/QRCode_swetake -->
+		<dependency>
+			<groupId>QRCode</groupId>
+			<artifactId>QRCode_swetake</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.daijie/daijie-core-spring-boot-starter -->
+		<dependency>
+			<groupId>org.daijie</groupId>
+			<artifactId>daijie-core-spring-boot-starter</artifactId>
+			<version>1.1.4-RELEASE</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/net.sf.json-lib/json-lib -->
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.2.3</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/json-lib-2.2.3-jdk15.jar</systemPath>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/net.sf.ezmorph/ezmorph -->
+		<dependency>
+			<groupId>net.sf.ezmorph</groupId>
+			<artifactId>ezmorph</artifactId>
+			<version>1.0.6</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>jp.sourceforge</groupId>
+			<artifactId>qrcode</artifactId>
+			<systemPath>${project.basedir}/lib/qrcode.jar</systemPath>
+			<version>1.0</version>
+			<scope>system</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-resolver-dns-native-macos</artifactId>
+			<version>4.1.80.Final</version>
+			<classifier>osx-aarch_64</classifier>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.aliyun.oss/aliyun-sdk-oss -->
+		<dependency>
+			<groupId>com.aliyun.oss</groupId>
+			<artifactId>aliyun-sdk-oss</artifactId>
+			<version>3.14.0</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!--rabbitmq-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-s3</artifactId>
+			<version>1.12.376</version>
+		</dependency>
+
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>igexin-repo</id>
+			<url>http://mvn.gt.igexin.com/nexus/content/repositories/releases/</url>
+		</repository>
+		<repository>
+			<id>centit-repo</id>
+			<url>http://develop.centit.com/nexus/content/repositories/centit-releases/</url>
+		</repository>
+		<repository>
+			<id>default</id>
+			<url>https://repo1.maven.org/maven2/</url>
+		</repository>
+	</repositories>
+
+
+	<!--	<server>-->
+	<!--		<id>releases</id>-->
+	<!--		<username>admin</username>-->
+	<!--		<password>qwer1234</password>-->
+	<!--	</server>-->
+	<!--	<server>-->
+	<!--		<id>snapshots</id>-->
+	<!--		<username>admin</username>-->
+	<!--		<password>qwer1234</password>-->
+	<!--	</server>-->
+
+
+	<distributionManagement>
+		<repository>
+			<!--id的名字可以任意取，但是在setting文件中的属性<server>的ID与这里一致-->
+			<id>releases</id>
+			<!--指向仓库类型为host(宿主仓库）的储存类型为Release的仓库-->
+			<url>https://nexus.9113.im/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<!--指向仓库类型为host(宿主仓库）的储存类型为Snapshot的仓库-->
+			<url>https://nexus.9113.im/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+
+		<resources>
+			<resource>
+				<directory>src/main/webApp</directory>
+				<targetPath>META-INF/resources</targetPath>
+				<includes>
+					<include>**/**</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+<!--				<filtering>true</filtering>-->
+			</resource>
+			<!--			<resource>-->
+			<!--				<directory>src/main/java</directory>-->
+			<!--				<includes>-->
+			<!--					<include>**/*.xml</include>-->
+			<!--				</includes>-->
+			<!--			</resource>-->
+			<resource>
+				<directory>lib</directory>
+				<targetPath>BOOT-INF/lib</targetPath>
+				<includes>
+					<include>**/*.jar</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+
+</project>

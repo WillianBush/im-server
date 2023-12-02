@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: nacos-svc:8848
+#        server-addr: 103.145.60.7:32142
+        file-extension: yaml  #后缀名
+        group: DEFAULT_GROUP      #分组
+        namespace: 1179b48c-54e0-44a1-b526-0e457e93766c  #命名空间的id
+        shared-configs: ${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+      discovery:
+        server-addr: nacos-svc:8848
+#        server-addr: 103.145.60.7:32142
+        namespace: 1179b48c-54e0-44a1-b526-0e457e93766c

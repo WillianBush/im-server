@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: nacos.t6prn1.xyz:8848
+        file-extension: yaml  #后缀名
+        group: DEFAULT_GROUP      #分组
+        namespace: cb0149ee-d34e-4912-a856-0fe08ee3980f  #命名空间的id
+      discovery:
+        server-addr: nacos.t6prn1.xyz:8848
+        file-extension: yaml  #后缀名

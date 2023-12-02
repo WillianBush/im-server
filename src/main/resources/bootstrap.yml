@@ -1,0 +1,101 @@
+# Tomcat
+server:
+  port: 9088
+  servlet:
+    context-path: /
+
+spring:
+  profiles:
+#    active: local   #激活的环境
+    active: gouyun
+  application:
+    name: im-cluster
+  web:
+    resources:
+      static-locations:
+        - classpath:/resources/
+        - classpath:/static/
+        - classpath:/
+        - classpath:/META-INF/resources
+  mvc:
+    static-path-pattern: /**
+    view:
+      prefix: /META-INF/resources/WEB-INF/views/
+      suffix: .ftl
+#  freemarker:
+#    content-type: text/html; charset=UTF-8
+#    suffix: .ftl
+#    prefix: /WEB-INF/views/
+#    template-loader-path:
+#      - classpath:META-INF/resources/WEB-INF/views/
+#      - classpath:META-INF/resources/
+#      - classpath:/
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 0
+      connection-timeout: 20000
+      maximum-pool-size: 12
+      idle-timeout: 30000
+      auto-commit: true
+      connection-test-query: select 1
+      initialization-fail-timeout: 20000
+      login-timeout: 20000
+  jpa:
+    database: MYSQL
+    properties:
+      hibernate:
+        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  # jackson时间格式化
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+
+file-system-active: oss
+
+aliyun:
+  oss:
+    endpoint: 360-im.oss-cn-hongkong.aliyuncs.com
+    appPoint: oss-cn-hongkong.aliyuncs.com
+    accessKeyId: LTAI5t7EtrT6UDs1LyhCurQm
+    accessKeySecret: 7JOKPC0ZpbuC6nSn0x4aFfKbdG664A
+    bucketname: 360-im
+    domain: https://360-im.oss-cn-hongkong.aliyuncs.com
+
+aws:
+  s3:
+    accessKeyId: AKIA6ENKP3UH5UCIHHPZ
+    accessKeySecret: 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
+    bucketname: media.qweac.link
+    endpoint: s3.ap-northeast-1.amazonaws.com/media.qweac.link
+    domain: https://media.qweac.link
+
+log:
+  file: ./logs/im-services.log
+  maxsize: 10MB
+
+
+gexin:
+  host: "http://api.getui.com/apiex.html"
+  appId:
+  appkey:
+  appSecret:
+  masterSecret:
+app:
+  component:
+
+taskThreadPool:
+  corePoolSize: 55 #核心线程数
+  maxPoolSize: 3000 #最大线程数
+  keepAliveSeconds: 600 #线程活跃时间
+  queueCapacity: 99999 #队列容量
