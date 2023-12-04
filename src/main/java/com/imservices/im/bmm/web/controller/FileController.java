@@ -1,7 +1,6 @@
 package com.imservices.im.bmm.web.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.nacos.common.utils.StringUtils;
 import com.imservices.im.bmm.annotation.AuthPassport;
 import com.imservices.im.bmm.bean.MemberBean;
 import com.imservices.im.bmm.bean.RoomBean;
@@ -20,6 +19,7 @@ import com.imservices.im.bmm.utils.web.BeanUtils;
 import com.imservices.im.bmm.utils.web.ResponseUtils;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
